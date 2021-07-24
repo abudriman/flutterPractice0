@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Startpage extends StatefulWidget {
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+class Startpage extends StatelessWidget {
+  final bool showStart;
+  final ValueChanged<bool> onTapped;
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
-  @override
-  _StartpageState createState() => _StartpageState();
-}
+  Startpage({@required this.showStart, @required this.onTapped});
 
-class _StartpageState extends State<Startpage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -79,19 +71,22 @@ class _StartpageState extends State<Startpage> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0xff5943BE),
-                  borderRadius: BorderRadius.circular(35),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 45),
-                  child: Text("Let's Start",
-                   style: TextStyle(
-                     color: Colors.white,
-                     fontWeight: FontWeight.bold
+              child: InkWell(
+                onTap: () => onTapped(false),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff5943BE),
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 45),
+                    child: Text("Let's start",
+                     style: TextStyle(
+                       color: Colors.white,
+                       fontWeight: FontWeight.bold
 
-                   ),),
+                     ),),
+                  ),
                 ),
               ),
             )
